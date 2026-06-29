@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>夏恩英語｜AI 暑期課程可行性與試辦規劃</title>
+<style>
+  :root{
+    --ink:#10233b; --muted:#5d6c7d; --line:#dce5ee; --paper:#f5f8fb;
+    --navy:#0b2742; --blue:#1976d2; --sky:#eaf5ff; --mint:#e8f7ee;
+    --green:#2e9d64; --yellow:#fff6d7; --orange:#ed8b32; --red:#cf4c55;
+    --white:#fff; --shadow:0 14px 38px rgba(16,35,59,.10);
+    --radius:18px; --max:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:auto;padding:0 22px}
+  .top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,229,238,.85)}
+  .top-inner{max-width:var(--max);margin:auto;padding:12px 22px;display:flex;align-items:center;gap:18px}
+  .brand{font-weight:800;letter-spacing:.02em;white-space:nowrap}
+  .brand b{color:var(--blue)}
+  nav{display:flex;gap:14px;overflow:auto;white-space:nowrap;flex:1}
+  nav a{font-size:13px;color:var(--muted);padding:7px 4px}
+  nav a:hover{color:var(--blue);text-decoration:none}
+  .btn{border:0;border-radius:10px;padding:10px 14px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:.18s}
+  .btn.primary{background:var(--navy);color:#fff}
+  .btn.primary:hover{background:#123a61}
+  .btn.ghost{background:#eef4f9;color:var(--navy)}
+  .btn.ghost:hover{background:#e1edf6}
+  .hero{padding:68px 0 48px;background:
+    radial-gradient(circle at 81% 20%,rgba(25,118,210,.20),transparent 28%),
+    radial-gradient(circle at 10% 45%,rgba(46,157,100,.15),transparent 25%),
+    linear-gradient(145deg,#f8fcff 0%,#eff6fc 62%,#f7fbf9 100%)}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #bfd8ef;background:#fff;color:#155b9d;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.06em}
+  h1{font-size:clamp(32px,5vw,58px);letter-spacing:-.045em;line-height:1.15;margin:16px 0 14px;max-width:850px}
+  h1 span{color:var(--blue)}
+  .lead{font-size:18px;color:#425369;max-width:760px;margin:0}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:end}
+  .decision-card{background:rgba(255,255,255,.92);border:1px solid #d9e7f2;border-radius:var(--radius);padding:21px;box-shadow:var(--shadow)}
+  .decision-card h3{margin:0 0 8px;font-size:15px}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .pill{font-size:12px;font-weight:750;padding:7px 10px;border-radius:999px;background:#f0f5f9;color:#40536a}
+  .pill.blue{background:#e5f2ff;color:#135a9a}.pill.green{background:#eaf8ef;color:#1a7b4a}.pill.orange{background:#fff1e6;color:#ae5910}
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:20px}
+  h2{font-size:29px;letter-spacing:-.03em;line-height:1.25;margin:0}
+  .section-note{color:var(--muted);font-size:14px;max-width:550px;margin:6px 0 0}
+  .num{font-size:12px;color:var(--blue);font-weight:900;letter-spacing:.08em;margin-bottom:4px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 6px 22px rgba(18,45,72,.05)}
+  .card h3{margin:0 0 8px;font-size:18px;line-height:1.3}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+  .icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--sky);font-size:21px;margin-bottom:12px}
+  .key{font-weight:800;color:var(--ink)}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+  .tab{border:1px solid #cad9e7;background:#fff;border-radius:999px;padding:9px 13px;font-size:14px;font-weight:800;color:#4d6075;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .panel{display:none}.panel.active{display:block}
+  .course-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+  .course-title{font-size:27px;margin:0 0 8px;line-height:1.2}
+  .course-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
+  .tag{border-radius:7px;font-size:12px;font-weight:800;padding:5px 8px;background:#eff5fa;color:#3e536c}
+  .tag.blue{background:#e5f2ff;color:#145b9c}.tag.green{background:#eaf7ef;color:#257c4d}.tag.orange{background:#fff0e5;color:#ab5e1e}
+  ul.clean{list-style:none;margin:14px 0 0;padding:0}
+  ul.clean li{position:relative;padding:6px 0 6px 20px;font-size:14px}
+  ul.clean li:before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;border-radius:50%;background:var(--blue)}
+  .outcome{background:linear-gradient(145deg,#eef8ff,#f1fbf5);border:1px solid #d7e9e0}
+  .outcome strong{font-size:18px}
+  .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+  th,td{padding:14px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:0}th{background:#f6f9fc;color:#485c72;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  td:first-child{font-weight:800;color:#1b3854}
+  .filterbar{display:flex;gap:9px;flex-wrap:wrap;padding:14px;background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:15px}
+  .filter-label{font-size:13px;color:var(--muted);display:flex;align-items:center;margin-right:4px}
+  .choice{border:1px solid #cfdeeb;border-radius:10px;padding:8px 11px;background:#fff;color:#445a72;cursor:pointer;font-size:13px;font-weight:800}
+  .choice.active{background:#eaf5ff;border-color:#6eafe5;color:#0f589a}
+  .ideas{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+  .idea{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px;min-height:165px}
+  .idea .mini{font-size:12px;font-weight:850;color:var(--blue);letter-spacing:.06em}
+  .idea h4{font-size:16px;margin:7px 0 5px;line-height:1.3}.idea p{font-size:13px;color:var(--muted);margin:0}
+  .hidden{display:none!important}
+  .safe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+  .safe{background:#fff;border:1px solid var(--line);padding:18px;border-radius:15px;position:relative;overflow:hidden}
+  .safe:after{content:attr(data-num);position:absolute;right:10px;bottom:-15px;font-size:70px;font-weight:900;color:#f0f5f9;z-index:0}
+  .safe>*{position:relative;z-index:1}.safe h4{margin:0 0 7px;font-size:16px}.safe p{margin:0;font-size:13px;color:var(--muted)}
+  .flow{margin-top:17px;padding:17px;background:#0e2d4b;border-radius:16px;color:#fff}
+  .flow h3{font-size:15px;margin:0 0 12px}.steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .step{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);padding:9px 11px;border-radius:10px;font-weight:750;font-size:13px}
+  .arrow{opacity:.6;font-size:20px}
+  .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+  .phase{border-radius:16px;padding:19px;border:1px solid var(--line);background:#fff}
+  .phase .phase-no{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}.phase h3{margin:7px 0;font-size:18px}.phase p{margin:0;color:var(--muted);font-size:14px}
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 15px;margin-bottom:10px}
+  summary{padding:14px 0;cursor:pointer;font-weight:800}.answer{padding:0 0 14px;color:var(--muted);font-size:14px}
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+  .check{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px}
+  .check h3{margin:0 0 8px;font-size:17px}.check label{display:flex;gap:9px;align-items:flex-start;padding:7px 0;font-size:14px;cursor:pointer}.check input{margin-top:5px;accent-color:var(--blue)}
+  .progress{height:10px;background:#e8eef3;border-radius:999px;overflow:hidden;margin:15px 0 8px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:.25s}
+  .source-list{font-size:13px;color:var(--muted)}.source-list li{margin:9px 0}
+  footer{background:#09223a;color:#c9d8e6;padding:40px 0;font-size:13px}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:25px}footer h3{color:#fff;margin:0 0 8px;font-size:16px}
+  .callout{border-left:4px solid var(--orange);padding:13px 15px;background:#fff9eb;border-radius:0 12px 12px 0;color:#6e4c1d;font-size:14px;margin:17px 0}
+  .print-only{display:none}
+  @media(max-width:860px){
+    .hero-grid,.course-hero,.grid2,.checklist,.footer-grid{grid-template-columns:1fr}
+    .grid3,.safe-grid{grid-template-columns:1fr 1fr}.ideas{grid-template-columns:1fr 1fr}.roadmap{grid-template-columns:1fr}
+    .top-inner{gap:10px}.top .btn{display:none}.hero{padding-top:45px}
+  }
+  @media(max-width:520px){
+    .grid3,.safe-grid,.ideas{grid-template-columns:1fr}
+    .wrap{padding:0 16px}.top-inner{padding:10px 16px}section{padding:40px 0}h2{font-size:25px}
+  }
+  @media print{
+    .top,.no-print{display:none!important}.print-only{display:block}body{background:#fff}.hero{padding:30px 0}.card,.phase,.safe,.idea,.check{box-shadow:none;break-inside:avoid}.panel{display:block!important}.tabs{display:none}.hidden{display:block!important}
+  }
+
+  .risk-table td:nth-child(2){font-weight:800}
+  .risk-high{color:#a32c35}.risk-mid{color:#a56813}.risk-low{color:#21714b}
+  .verdict{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;align-items:stretch;margin-top:18px}
+  .verdict-main{background:linear-gradient(135deg,#fff4e7,#fffaf2);border:1px solid #f1d2a8;border-radius:16px;padding:20px}
+  .verdict-main h3{margin:0 0 8px;font-size:19px}.verdict-main p{margin:0;color:#6e4d28;font-size:14px}
+  .verdict-tag{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+  .verdict-tag strong{font-size:26px;color:#b76118;line-height:1.2}.verdict-tag span{font-size:13px;color:var(--muted);margin-top:7px}
+  @media(max-width:860px){.verdict{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header class="top no-print">
+  <div class="top-inner">
+    <div class="brand">夏恩英語 <b>AI 暑期課程</b></div>
+    <nav>
+      <a href="#overview">核心方向</a>
+      <a href="#risk">先決風險</a>
+      <a href="#courses">課程設計</a>
+      <a href="#ideas">純 AI 主題</a>
+      <a href="#safety">限制與安全</a>
+      <a href="#pilot">試辦建議</a>
+      <a href="#check">執行檢核</a>
+    </nav>
+    <button class="btn ghost" onclick="window.print()">列印／另存 PDF</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="overview">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">INTERNAL DISCUSSION · SUMMER PROGRAM 2026</div>
+        <h1>不是教孩子「用 AI」，<br>而是讓孩子用 <span>AI 表達、判斷與創作。</span></h1>
+        <p class="lead">夏恩最適合的切入點，不是和程式補習班競爭工具操作，而是將 AI 結合英文、專題與成果發表，轉化為家長看得見的未來能力。</p>
+        <div class="pill-row">
+          <span class="pill blue">AI × English</span><span class="pill green">專題成果導向</span><span class="pill orange">安全使用與查證</span>
+        </div>
+      </div>
+      <aside class="decision-card">
+        <h3>重新評估後：不宜直接開正式 AI 營</h3>
+        <p style="font-size:14px;color:var(--muted);margin:0">先確認師資、帳號與安全控管；若尚未具備，改為低風險的 AI 素養短期試辦，而不是直接招生完整營隊。</p>
+        <ul class="clean">
+          <li><strong>先做：</strong>90–120 分鐘親子／學生 AI 素養工作坊</li>
+          <li><strong>再決定：</strong>是否擴充為完整課程</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="num">01 · POSITIONING</div><h2>課程定位：兩條產品線</h2><p class="section-note">同一套 AI 素養核心，依夏恩的英文強項與不同年齡的需求，拆成兩種招生語言。</p></div>
+      </div>
+      <div class="grid2">
+        <article class="card">
+          <div class="icon">🌐</div>
+          <h3>AI × English 國際表達營</h3>
+          <p><span class="key">定位：</span>讓孩子用 AI 完成英文故事、口說、簡報與專題，不把 AI 當答案機。</p>
+          <ul class="clean"><li>最符合夏恩既有品牌</li><li>可連結英文閱讀、寫作與口說</li><li>成果直觀，便於家長理解與展示</li></ul>
+        </article>
+        <article class="card">
+          <div class="icon" style="background:var(--mint)">🧩</div>
+          <h3>AI 創作／數位素養營</h3>
+          <p><span class="key">定位：</span>培養提問、查證、創作、個資保護與負責任使用 AI 的能力，不必綁英文。</p>
+          <ul class="clean"><li>適合新客與跨年級招生</li><li>可發展遊戲、創業、科學專題</li><li>避免只教單一工具或 AI 繪圖</li></ul>
+        </article>
+      </div>
+      <div class="callout"><strong>共同原則：</strong>孩子先有想法，再由 AI 協助；孩子要能判斷、修改並說明自己的選擇。</div>
+    </div>
+  </section>
+
+  
+  <section id="risk">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="num">02 · GO / NO-GO ASSESSMENT</div><h2>先決風險：不是「能不能教」，而是「現在適不適合開」</h2><p class="section-note">生成式 AI 可能支援練習與回饋，但若成為捷徑，孩子會把思考、寫作與查證外包。這一層風險必須先於課程內容評估。</p></div>
+      </div>
+      <div class="table-wrap risk-table">
+        <table>
+          <thead><tr><th>可預期問題</th><th>風險程度</th><th>為什麼會發生</th><th>若要做，最低限度的控制方式</th></tr></thead>
+          <tbody>
+            <tr><td>孩子把 AI 當答案機，寫作與思考變成複製貼上</td><td class="risk-high">高</td><td>生成內容速度快、語句看似完整，孩子容易跳過構思、組織與修改。</td><td>先寫「自己的初稿／想法卡」才能用 AI；評分看過程與口頭說明，不只看成品。</td></tr>
+            <tr><td>英文學習被翻譯與代寫取代</td><td class="risk-high">高</td><td>孩子會直接要求 AI 產出英文段落，表面漂亮但不代表理解、詞彙或口說能力提升。</td><td>AI 只能做「改錯、提供兩種說法、提問引導」；禁止直接生成整段作業作為提交內容。</td></tr>
+            <tr><td>老師不夠專業，課程變成帶學生玩工具</td><td class="risk-high">高</td><td>教師若不會設計任務、追問、查證與控班，AI 很快就會主導課堂。</td><td>先做教師培訓與固定教案；每堂課設定禁用／可用範圍與示範回應。</td></tr>
+            <tr><td>學生誤信 AI 的錯誤資訊</td><td class="risk-high">高</td><td>生成式 AI 能產出看似合理但錯誤、過時或不完整的內容。</td><td>所有事實性內容要雙來源查核；課程中刻意安排「找出 AI 錯誤」活動。</td></tr>
+            <tr><td>年齡、帳號、個資與家長同意問題</td><td class="risk-high">高</td><td>工具條款、監護設定與資料處理方式會因平台而異，國小學生尤其不適合自行註冊。</td><td>國小採教師受控帳號與投影共創；開課前確認平台當期年齡與監護規範、家長同意書。</td></tr>
+            <tr><td>不當內容、偏見、著作權與肖像風險</td><td class="risk-mid">中高</td><td>開放式提示可能出現不適齡內容；圖像／文字涉及既有角色、特定創作者風格與他人照片時風險提高。</td><td>只用教師設計的提示任務；不輸入學生照片、個資；不以既有 IP 或特定在世創作者風格做成果。</td></tr>
+            <tr><td>學生能力差距被拉大</td><td class="risk-mid">中</td><td>熟悉電腦與英文的孩子更快掌握工具，其他孩子可能只負責抄寫或旁觀。</td><td>固定小組角色：發想、查證、英文、設計、發表；每人要有可驗證的個人產出。</td></tr>
+            <tr><td>家長期待落差與品牌風險</td><td class="risk-mid">中</td><td>家長可能以為是程式課、升學課，或反過來質疑「花錢讓孩子玩 ChatGPT」。</td><td>招生說明要清楚：不教代寫作業、不保證程式能力；以作品、查證與表達成果定義價值。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict">
+        <div class="verdict-main">
+          <h3>重新評估結論：先不要把「完整 AI 暑期營」當第一步</h3>
+          <p>在尚未具備具備 AI 教學設計能力的主教師、受控帳號流程、家長溝通與可驗證評量機制前，直接開完整 AI 課程的教育風險高於招生價值。先用短時數、教師主導、無個人帳號的 AI 素養工作坊驗證，才是比較穩健的做法。</p>
+        </div>
+        <div class="verdict-tag">
+          <strong>先試，不先擴</strong>
+          <span>先驗證師資與控管，<br>再談正式產品線。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section id="courses">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="num">03 · PILOT COURSES</div><h2>優先試辦班型</h2><p class="section-note">以「完整作品＋成果發表」作為每班的結束點，讓課程不只停在工具體驗。</p></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab" aria-selected="true" data-tab="elementary">國小｜故事創作營</button>
+        <button class="tab" aria-selected="false" data-tab="junior">國中｜未來溝通實驗室</button>
+      </div>
+
+      <div class="panel active" id="elementary">
+        <div class="course-hero">
+          <article class="card">
+            <div class="num">PRIMARY · GRADE 3–6</div>
+            <h3 class="course-title">AI English Story Creator Camp</h3>
+            <p>用英文指令、角色設定與故事結構，完成一本自己的英文小繪本與短講。重點是「用英文說自己的故事」，不是讓 AI 寫作業。</p>
+            <div class="course-meta"><span class="tag blue">建議 15 小時</span><span class="tag green">5 天 × 3 小時</span><span class="tag orange">12 人內＋助教</span></div>
+            <ul class="clean">
+              <li>AI 是什麼？哪些資料不能輸入？</li>
+              <li>英文角色設定：外觀、個性、能力、任務</li>
+              <li>英文故事結構：問題 → 行動 → 解決</li>
+              <li>AI 輔助插圖、句型修正與故事發表</li>
+            </ul>
+          </article>
+          <aside class="card outcome">
+            <div class="num">TAKEAWAY</div>
+            <strong>可帶回的成果</strong>
+            <ul class="clean">
+              <li>英文角色卡</li>
+              <li>6–8 頁英文故事書</li>
+              <li>AI 輔助插圖與創作過程記錄</li>
+              <li>30–60 秒英文短講／錄音</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+
+      <div class="panel" id="junior">
+        <div class="course-hero">
+          <article class="card">
+            <div class="num">JUNIOR HIGH · GRADE 7–9</div>
+            <h3 class="course-title">AI Future Communication Lab</h3>
+            <p>讓學生用 AI 做研究、比對資訊、組織英文觀點與簡報發表。課程強調查證與個人觀點，而不是用 AI 直接完成內容。</p>
+            <div class="course-meta"><span class="tag blue">建議 18 小時</span><span class="tag green">6 天 × 3 小時</span><span class="tag orange">15 人內＋助教</span></div>
+            <ul class="clean">
+              <li>AI 回答可信嗎？來源、偏誤與查證</li>
+              <li>國際議題或未來職涯主題研究</li>
+              <li>英文簡報架構、觀點表達與問答</li>
+              <li>AI 協助修稿，但保留學生論點與結論</li>
+            </ul>
+          </article>
+          <aside class="card outcome">
+            <div class="num">TAKEAWAY</div>
+            <strong>可帶回的成果</strong>
+            <ul class="clean">
+              <li>英文簡報與研究摘要</li>
+              <li>AI 使用紀錄與查證紀錄</li>
+              <li>3 分鐘英文 Pitch</li>
+              <li>小組成果展與同儕提問</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+
+      <div style="margin-top:22px" class="table-wrap">
+        <table>
+          <thead><tr><th>比較面向</th><th>國小 AI × English 故事創作營</th><th>國中 AI 未來溝通實驗室</th></tr></thead>
+          <tbody>
+            <tr><td>主要目標</td><td>英文表達、故事創作、建立安全使用習慣</td><td>研究、查證、簡報與觀點表達</td></tr>
+            <tr><td>適合招生語言</td><td>英文故事、角色創作、作品帶回家</td><td>AI 素養、未來能力、英文簡報與職涯探索</td></tr>
+            <tr><td>AI 的角色</td><td>詞彙、句型、插圖與發想助手</td><td>研究輔助、反方模擬、修稿與架構助手</td></tr>
+            <tr><td>執行關鍵</td><td>教師輸入與小組共創，避免孩子自行帳號操作</td><td>查證規則、資料來源、學生自主論點</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="ideas">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="num">04 · NON-ENGLISH OPTIONS</div><h2>不綁英文的 AI 暑期班，可以做什麼？</h2><p class="section-note">以下不是第一波必開，而是可依師資、招生與家長需求擴展的純 AI／STEAM 主題。</p></div>
+      </div>
+      <div class="filterbar">
+        <span class="filter-label">篩選適合對象：</span>
+        <button class="choice active" data-filter="all">全部</button>
+        <button class="choice" data-filter="primary">國小中高年級</button>
+        <button class="choice" data-filter="junior">國中</button>
+        <button class="choice" data-filter="both">跨年級</button>
+      </div>
+      <div class="ideas">
+        <article class="idea" data-age="primary both"><div class="mini">CREATION</div><h4>AI 小創作者營</h4><p>故事、角色、海報、配音、作品集。最易招生，但要以完整專題而非單次生成圖片為核心。</p></article>
+        <article class="idea" data-age="primary junior both"><div class="mini">LITERACY</div><h4>AI 偵探與真假資訊營</h4><p>辨識 AI 幻覺、假新聞、深偽內容與資料來源；強化家長最在意的判斷力與網路安全。</p></article>
+        <article class="idea" data-age="primary junior"><div class="mini">GAME DESIGN</div><h4>AI 遊戲設計營</h4><p>世界觀、角色、任務、關卡、封面與提案。適合吸引不愛傳統英語課的學生。</p></article>
+        <article class="idea" data-age="junior both"><div class="mini">ENTREPRENEURSHIP</div><h4>AI 小老闆創業營</h4><p>品牌、商品、Logo、文案、海報與 Pitch；讓 AI 成為市場調查與創意協作工具。</p></article>
+        <article class="idea" data-age="primary junior both"><div class="mini">STEAM</div><h4>AI × 科學探究營</h4><p>以環境、太空、保育或未來城市為題，做資料查找、觀察、解決方案與成果展示。</p></article>
+        <article class="idea" data-age="junior"><div class="mini">MEDIA</div><h4>AI 內容創作實驗室</h4><p>短影音腳本、Podcast、新聞識讀與簡報。要搭配著作權、隱私與平台使用規範。</p></article>
+        <article class="idea" data-age="primary"><div class="mini">VISUAL THINKING</div><h4>未來城市設計營</h4><p>由孩子定義城市問題，再用 AI 協助發想交通、能源、校園或生活情境的解決方案。</p></article>
+        <article class="idea" data-age="junior both"><div class="mini">DEBATE</div><h4>AI 議題辯論營</h4><p>以「學生是否應使用 AI」等題目，練習證據、反方觀點、資料查核與口語表達。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="safety">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="num">05 · SAFETY & OPERATIONS</div><h2>執行限制與原則</h2><p class="section-note">這一頁不是數據圖表，而是課程落地時必須先控住的四個條件。</p></div>
+      </div>
+      <div class="safe-grid">
+        <article class="safe" data-num="01"><h4>年齡與帳號</h4><p>主流生成式 AI 工具常有年齡、帳號或監護設定要求。正式開班前，需逐一確認當期工具條款與學校／補習班適用方式。</p></article>
+        <article class="safe" data-num="02"><h4>國小操作方式</h4><p>不把「每位學生自行註冊」當前提。採教師示範、受控帳號、投影共創、小組工作紙與助教協作。</p></article>
+        <article class="safe" data-num="03"><h4>使用規範</h4><p>不輸入個資；不直接複製 AI 答案；不以 AI 回覆作為事實；不模仿特定創作者風格或使用受保護角色。</p></article>
+        <article class="safe" data-num="04"><h4>教師能力</h4><p>需要 AI 引導、資訊查證、課堂管理與專題教學能力。會操作工具，不等於能帶出課程品質。</p></article>
+      </div>
+      <div class="flow">
+        <h3>建議的課堂使用流程</h3>
+        <div class="steps">
+          <span class="step">學生先提出想法</span><span class="arrow">→</span>
+          <span class="step">教師協助拆解問題</span><span class="arrow">→</span>
+          <span class="step">AI 提供發想／草稿</span><span class="arrow">→</span>
+          <span class="step">學生查證與修改</span><span class="arrow">→</span>
+          <span class="step">完成作品並發表</span>
+        </div>
+      </div>
+      <div class="callout"><strong>最重要的界線：</strong>AI 應該放大孩子的思考與創作，不應取代孩子的思考、判斷與責任。</div>
+    </div>
+  </section>
+
+  <section id="pilot">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="num">06 · PILOT ROADMAP</div><h2>建議的試辦路線</h2><p class="section-note">不要一開始就把 AI 做成完整暑期營。先用低風險試辦驗證「孩子有沒有真的學到」與「老師能不能穩定帶課」。</p></div>
+      </div>
+      <div class="roadmap">
+        <article class="phase"><div class="phase-no">PHASE 1</div><h3>AI 素養體驗工作坊</h3><p>先做 90–120 分鐘、教師主導、無個人帳號的單次活動：辨識 AI 錯誤、個資保護、英文句子修正與小組共創。</p></article>
+        <article class="phase"><div class="phase-no">PHASE 2</div><h3>小班短期試辦</h3><p>確認教師可穩定帶領、家長理解課程目的、孩子能完成「先想再用 AI」的流程後，再試辦 6–9 小時小班課。</p></article>
+        <article class="phase"><div class="phase-no">PHASE 3</div><h3>再決定是否正式開營</h3><p>只有在成果能證明孩子的英文、查證與表達能力有提升，而非只是成品變漂亮時，才擴大為完整暑期營或純 AI／STEAM 系列。</p></article>
+      </div>
+      <div style="margin-top:18px" class="grid3">
+        <article class="card"><h3>試辦成功指標</h3><p>報名轉換、完課率、作品完成率、家長滿意度、後續續班／轉介紹意願。</p></article>
+        <article class="card"><h3>不宜過早承諾</h3><p>「學會所有 AI 工具」、「保證程式能力」、「每人獨立帳號操作」、「AI 作品可完全商用原創」。</p></article>
+        <article class="card"><h3>招生核心話術</h3><p>從提問、查證到發表，讓孩子安全、聰明、負責任地使用 AI，完成自己的作品。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="check">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="num">07 · READY CHECK</div><h2>開班前自我檢核</h2><p class="section-note">勾選後可快速確認目前是否適合直接開班；此檢核不會儲存資料。</p></div>
+      </div>
+      <div class="checklist">
+        <article class="check">
+          <h3>課程與師資</h3>
+          <label><input type="checkbox" class="checkitem"> 已定義每堂課的孩子產出，而不是只列工具功能</label>
+          <label><input type="checkbox" class="checkitem"> 已有主教與助教的角色分工</label>
+          <label><input type="checkbox" class="checkitem"> 教師知道如何處理 AI 錯誤、偏誤與不當輸入</label>
+          <label><input type="checkbox" class="checkitem"> 已規劃成果展、家長回饋與作品授權方式</label>
+        </article>
+        <article class="check">
+          <h3>帳號、安全與設備</h3>
+          <label><input type="checkbox" class="checkitem"> 已確認要使用的工具年齡、帳號與監護條件</label>
+          <label><input type="checkbox" class="checkitem"> 已決定國小班採教師受控帳號／共創模式</label>
+          <label><input type="checkbox" class="checkitem"> 已建立個資、著作權與 AI 使用規範</label>
+          <label><input type="checkbox" class="checkitem"> 已測試投影、網路、裝置與備援方案</label>
+        </article>
+      </div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div id="progressText" style="font-size:14px;color:var(--muted)">目前完成 0 / 8 項。建議完成至少 6 項後再對外招生。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><div class="num">08 · FAQ</div><h2>常見疑慮</h2></div></div>
+      <details><summary>是否要讓每位孩子都有自己的 AI 帳號？</summary><div class="answer">不建議把這當成國小班前提。較穩妥的設計是教師示範、投影共創、小組工作紙與受控帳號。國中若採個人使用，也要在開課前確認工具條款、家長同意與學校／補習班的帳號管理方式。</div></details>
+      <details><summary>AI 繪圖會不會讓課程看起來只是「玩工具」？</summary><div class="answer">會，若課程只停在輸入一句話生成圖片。較好的做法是讓圖像服務於完整專題，例如英文繪本、遊戲提案、品牌創業或科學海報，並要求學生保留發想與修改過程。</div></details>
+      <details><summary>需要找工程師或程式老師嗎？</summary><div class="answer">第一波不需要。建議先做 AI 素養與專題創作，核心師資是能帶英文／專題、能處理查證與課堂引導的老師。Scratch、Python 或 AI API 等程式課，適合等課程成熟後再評估。</div></details>
+      <details><summary>家長最可能在意什麼？</summary><div class="answer">通常是孩子是否沉迷、是否抄作業、是否接觸不當內容、個資會不會外流，以及「到底學到什麼」。因此招生說明要清楚寫出使用規範、教師引導方式與可帶回成果。</div></details>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><div class="num">09 · REFERENCES</div><h2>執行前建議查核來源</h2><p class="section-note">平台條款與教育指引會調整；正式招生、帳號設定與家長同意書應以開課當期的官方規範為準。</p></div></div>
+      <ol class="source-list">
+        <li>OpenAI Help Center：ChatGPT 服務條款、最低年齡與家長／監護人規範。</li>
+        <li>Google Support：Gemini Apps 的年齡、受監護帳號與地區可用性規範。</li>
+        <li>教育部／數位發展相關單位：生成式 AI 教育應用、資訊素養與數位公民資源。</li>
+        <li>經濟部智慧財產局：生成式 AI、著作權與教材／作品公開使用的相關說明。</li>
+      </ol>
+      <p style="font-size:12px;color:var(--muted);margin-top:15px">本頁為課程規劃參考，不取代平台條款、法規、校方政策或專業法律意見。</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div><h3>夏恩英語｜AI 暑期課程可行性與試辦規劃</h3><p style="margin:0">建議先用小班、成果導向、教師受控的方式試辦；用家長回饋、學生作品與師資負荷決定下一階段擴充。</p></div>
+    <div><h3>核心一句話</h3><p style="margin:0">AI 是協助孩子思考與完成作品的工具，不是代替孩子完成作業的捷徑。</p></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected','false'));
+      btn.setAttribute('aria-selected','true');
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.choice').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.choice').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter=btn.dataset.filter;
+      document.querySelectorAll('.idea').forEach(card=>{
+        const ages=card.dataset.age.split(' ');
+        card.classList.toggle('hidden', !(filter==='all'||ages.includes(filter)||ages.includes('both')));
+      });
+    });
+  });
+
+  const checks=[...document.querySelectorAll('.checkitem')];
+  const bar=document.getElementById('bar'), text=document.getElementById('progressText');
+  function updateProgress(){
+    const done=checks.filter(c=>c.checked).length;
+    bar.style.width=(done/checks.length*100)+'%';
+    text.textContent=`目前完成 ${done} / ${checks.length} 項。${done>=6?' 已具備進入試辦／招生準備的基本條件。':' 建議完成至少 6 項後再對外招生。'}`;
+  }
+  checks.forEach(c=>c.addEventListener('change',updateProgress));
+</script>
+</body>
+</html>
